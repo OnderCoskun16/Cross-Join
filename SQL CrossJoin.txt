@@ -1,0 +1,22 @@
+Cross Join
+
+CROSS JOIN tablolar arasında yapılan birleştirme işleminde seçilen alanlar arasındaki tüm kombinasyonları sonuç tablosu olarak vermeyi sağlar. 
+Veritabanlarında fazla kullanılmayan bir yöntem olan CROSS JOIN'in oluşturduğu sonuç tablosunda satır sayısı, alanların kartezyen çarpım sayısı kadardır. 
+Örneğin; ilk alanda 4, ikinci alanda 3 satır varsa 3*4=12 tane satır oluşacaktır.
+
+Çapraz birleştirme, iki tablo arasında kartezyen bir ürün üretir ve tüm satırların tüm olası kombinasyonlarını döndürür. 
+Hiçbir onhükmü yok çünkü her şeyi her şeye katıyorsunuz.
+
+A full outer join, left outerve right outerbirleşiminin birleşimidir. 
+Her iki tabloda da sorgunun whereyan tümcesiyle eşleşen tüm satırları döndürür ve onkoşulun bu satırlar için 
+karşılanamadığı durumlarda null, doldurulmamış alanlar için değerler koyar .
+
+iç birleşimleri, iki tablo arasında çok az eşleşme olduğunda genellikle daha hızlıdır, çünkü dizinlerin kullanımı tablolardan birindeki tüm satırları okumayı 
+zahmet etmeyeceği anlamına gelir. tam bir dış birleşim her zaman her iki tabloda (veya ilgili dizinlerde) tüm satırları okumalıdır. Dizinlerin yeterli olmadığı veya 
+gerekli sütunların çıktısını almak için altta yatan bir öbek okunması durumunda, tam bir dış birleşim neredeyse her zaman bir iç birleşimden daha yavaş olacaktır.
+
+Kısacası;
+CROSS JOIN tabloların tüm olası kombinasyonları ile sonuçlanacaktır. 
+örneğin 100 sıralı Table1 ve 100 sıralı Table2 10000 kayıtla sonuçlanacaktır.
+Çapraz birleşim satırları birleştirmez, her tabloda 1 ila 1 eşleşme ile 100 satır varsa, 
+10.000 sonuç alırsınız, Innerjoin aynı durumda sadece 100 satır döndürür.
